@@ -7,7 +7,7 @@
 #include <string>
 #include "Application.h"
 #define WIDTH 40
-#define MAXCOMMANDS 11
+#define MAXCOMMANDS 12
 using namespace std;
 
 int Application::GetCommand()
@@ -28,6 +28,7 @@ int Application::GetCommand()
         cout << "\t|" << left << setw(WIDTH) << setfill(' ') << "  9: Retrieve by name" << "|\n";
         cout << "\t|" << left << setw(WIDTH) << setfill(' ') << "  10: Add Product To Basket" << "|\n";
         cout << "\t|" << left << setw(WIDTH) << setfill(' ') << "  11: Manage the basket" << "|\n";
+        cout << "\t|" << left << setw(WIDTH) << setfill(' ') << "  12: Go to category" << "|\n";
 
         cout << "\t=" << right << setw(WIDTH + 1) << setfill('=') << "=\n";
         cout << "\t  Select a function --> ";
@@ -55,48 +56,52 @@ void Application::Run()
         // Command execution
         switch (m_Command)
         {
-            case 0:
-                return;
-            case 1:// display all records on screen
-                DisplayAllRecords();
-                break;
-            case 2:  // read data from file
-                ReadDataFromFile();
-                break;
-            case 3:  // write data to file
-                WriteDataToFile();
-                break;
-            case 4: // empty list
-                MakeEmpty();
-                break;
-            case 5: // add a record to list
-                AddProduct();
+        case 0:
+            return;
+        case 1:// display all records on screen
+            DisplayAllRecords();
+            break;
+        case 2:  // read data from file
+            ReadDataFromFile();
+            break;
+        case 3:  // write data to file
+            WriteDataToFile();
+            break;
+        case 4: // empty list
+            MakeEmpty();
+            break;
+        case 5: // add a record to list
+            AddProduct();
 
-                break;
-            case 6:	// delete a record
-                DeleteProduct();
-                break;
-            case 7: // Replace a record
-                ReplaceProduct();
-                break;
-            case 8:
-                RetrieveProductByCodeUsingBS();
-                break;
-            case 9:
-                RetrieveProductByName();
-                break;
+            break;
+        case 6:	// delete a record
+            DeleteProduct();
+            break;
+        case 7: // Replace a record
+            ReplaceProduct();
+            break;
+        case 8:
+            RetrieveProductByCodeUsingBS();
+            break;
+        case 9:
+            RetrieveProductByName();
+            break;
 
-            case 10:
-                AddProductToBasket();
-                break;
+        case 10:
+            AddProductToBasket();
+            break;
 
-            case 11:
-                ManageBasket();
-                break;
+        case 11:
+            ManageBasket();
+            break;
 
-            default:
-                cout << "\t [!]ERROR Illegal selection...\n";
-                break;
+        case 12:
+            ManageCategory();
+            break;
+
+        default:
+            cout << "\t [!]ERROR Illegal selection...\n";
+            break;
         }
     }
 }
@@ -215,7 +220,7 @@ bool Application::ReadDataFromFile()
 
     m_inFile.close();
     cout << "\n\t " << readDataCount << " data have been successfully read from '"
-         << fileName << "'" << endl;
+        << fileName << "'" << endl;
 
     return true;
 }
@@ -514,6 +519,11 @@ bool Application::ManageBasket()
     return true;
 }
 
+bool Application::ManageCategory()
+{
+    m_cate.ManageCategory(m_List);
+    return true;
+}
 
 
 

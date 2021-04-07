@@ -12,6 +12,7 @@
 #include <fstream>
 #include "SortedList.h"
 #include "BasketType.h"
+#include "CategoryType.h"
 //using namespace std;
 
 class Application
@@ -19,8 +20,9 @@ class Application
 private:
     ifstream m_inFile;	// input file descriptor
     ofstream m_outFile;	// output file descriptor
-    SortedList m_List;	// item list
+    SortedList m_List;	// masterList
     BasketType m_basket;
+    CategoryType m_cate;
     int m_Command;		// current command number
 
 
@@ -48,6 +50,14 @@ public:
    *	@return	return true if this function works well, otherwise false.
    */
     bool ManageBasket();
+
+    /**
+ *	@brief	Manage the category.
+ *	@pre	The category should be initialized.
+ *	@post	The category may be changed
+ *	@return	return true if this function works well, otherwise false.
+ */
+    bool ManageCategory();
 
 
     /*
@@ -176,22 +186,22 @@ public:
     bool ReplaceProduct();
 
 
-//
-//		/*
-//	*	@brief	Display the products in the basket.
-//	*	@pre	the basket is not empty
-//	*	@post	none
-//	*	@return return true if this function works well, otherwise false.
-//	*/
-//		bool DisplayProductsInBasket();
-//
-//		/*
-//	*	@brief	Calculate the amound of the all product.
-//	*	@pre	the basket is not empty and the price is initialized.
-//	*	@post	none
-//	*	@return	return true if this function works well, otherwise false.
-//	*/
-//		bool ComputeTotal();
+    //
+    //		/*
+    //	*	@brief	Display the products in the basket.
+    //	*	@pre	the basket is not empty
+    //	*	@post	none
+    //	*	@return return true if this function works well, otherwise false.
+    //	*/
+    //		bool DisplayProductsInBasket();
+    //
+    //		/*
+    //	*	@brief	Calculate the amound of the all product.
+    //	*	@pre	the basket is not empty and the price is initialized.
+    //	*	@post	none
+    //	*	@return	return true if this function works well, otherwise false.
+    //	*/
+    //		bool ComputeTotal();
 };
 
 #endif //LAB03_AGAIN_AGAIN_APPLICATION_H

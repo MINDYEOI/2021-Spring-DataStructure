@@ -12,6 +12,7 @@
 #include <fstream>
 #include "SimpleType.h"
 #include "SortedLinkedList.h"
+#define WIDTH 10
 using namespace std;
 
 class SimpleProductType {
@@ -24,8 +25,8 @@ private:
     string m_SalesNum;
     ItemType item;
 
-//	int m_buyNum;	// ���Ű���
-//	int m_buyPrice;	// ���Ŵܰ�
+    //	int m_buyNum;	// ���Ű���
+    //	int m_buyPrice;	// ���Ŵܰ�
 public:
 
     // Constructor
@@ -36,8 +37,8 @@ public:
         m_Price = 0;
         m_WarehousingNum = "";
         m_SalesNum = "";
-//		m_buyNum = 0;	// ���Ű���
-//		m_buyPrice = m_Price + 100;
+        //		m_buyNum = 0;	// ���Ű���
+        //		m_buyPrice = m_Price + 100;
     }
 
     // Destructor
@@ -221,6 +222,13 @@ public:
 
 
     /**
+    * @brief   Set the product code by KB.
+    * @pre     none.
+    * @post    Product code is set.
+    */
+    void SetCodeInBasketByKB();
+
+    /**
    *	@brief	Read data from file.
    *	@pre	the target file is opened.
    *	@post	data is set.
@@ -283,7 +291,7 @@ public:
     friend ostream& operator<<(ostream& ostrm, const SimpleProductType& item) // friend �ٿ��µ� �³�?�Ф�
     {
         ostrm << "[ Code : " << item.m_Code
-              << ", Item Name : " << item.m_Name << "]";
+            << ", Item Name : " << item.m_Name << "]";
         return ostrm;
     }
 

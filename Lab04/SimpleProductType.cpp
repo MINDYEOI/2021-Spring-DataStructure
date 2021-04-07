@@ -46,7 +46,11 @@ void SimpleProductType::SetSalesNum(string inSales)
 
 
 
-
+void SimpleProductType::SetCodeInBasketByKB()
+{
+    cout << "\t Enter the goods code :";
+    cin >> m_Code;
+}
 
 
 
@@ -61,27 +65,36 @@ void SimpleProductType::SetRecord(string inId, string inName, int inPrice, strin
 
 void SimpleProductType::DisplayCodeOnScreen()
 {
-    cout << "\t [Goods Code] " << m_Code<<endl;
+    //cout << "\t " << m_Code;
+    cout << right << setw(WIDTH) << setfill(' ') << m_Code;
 }
 
 void SimpleProductType::DisplayNameOnScreen()
 {
-    cout << "\t" << m_Name;
+    //cout << "\t " << m_Name;
+
+    cout << right << setw(WIDTH) << setfill(' ') << m_Name;
 }
 
 void SimpleProductType::DisplayPriceOnScreen()
 {
-    cout << "\t ₩" << m_Price <<endl;
+    //cout << "\t \\" << m_Price;
+
+    cout << right << setw(WIDTH) << setfill(' ') << m_Price;
 }
 
 void SimpleProductType::DisplayWarehousingOnScreen()
 {
-    cout << "\t" << m_WarehousingNum<<"left";
+    //    cout << "\t " << m_WarehousingNum<<" left";
+
+    cout << right << setw(WIDTH) << setfill(' ') << m_WarehousingNum << " left";
 }
 
 void SimpleProductType::DisplaySalesOnScreen()
 {
-    cout << "\t"<< m_SalesNum<<"sold";
+    //    cout << "\t "<< m_SalesNum<<" sold";
+
+    cout << right << setw(WIDTH) << setfill(' ') << m_SalesNum << " sold";
 }
 
 
@@ -98,6 +111,7 @@ void SimpleProductType::DisplayRecordOnScreen()
     DisplayPriceOnScreen();
     DisplayWarehousingOnScreen();
     DisplaySalesOnScreen();
+    cout << endl;
 }
 
 void SimpleProductType::SetCodeNumFromKB()
