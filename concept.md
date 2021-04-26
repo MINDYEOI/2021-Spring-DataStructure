@@ -25,4 +25,4 @@
 * * *
 2. N개의 자료를 처리하는 알고리즘을 수식으로 표현하면 아래와 같다. 이 알고리즘의 복잡도를 Big-O 표기법으로 표현하라. sum(k=0 to n)는 for-loop과 동일하게 취급한다. <br>
 ![image](https://user-images.githubusercontent.com/71140885/116046484-157d8500-a6ae-11eb-8b7f-b05ffa4ddec2.png)
-* F(N) = 0.2N*logN*10000+N*9999+N*0.01N+9999 = O(N^2)
+* F(N) = 0.2N*logN*10000+N*9999+N*0.01N*9999 = O(N^2)
